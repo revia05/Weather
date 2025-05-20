@@ -1,0 +1,152 @@
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes rain {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100vh; }
+}
+
+@keyframes lightning {
+    0%, 30%, 33%, 63%, 65%, 100% { opacity: 0; }
+    31%, 32%, 64% { opacity: 0.6; }
+}
+
+@keyframes leaves {
+    0% { transform: translateX(0) rotate(0); }
+    100% { transform: translateX(100vw) rotate(360deg); }
+}
+
+@keyframes thunderShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes fog {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+.swaying {
+    animation: sway 6s ease-in-out infinite;
+}
+
+.rain-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.rain-effect::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 10 20"><path d="M5 0L0 20" stroke="rgba(255,255,255,0.5)" stroke-width="1"/></svg>');
+    animation: rain 0.8s linear infinite;
+    pointer-events: none;
+}
+
+.lightning-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.lightning-effect::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    opacity: 0;
+    animation: lightning 7s linear infinite;
+    pointer-events: none;
+}
+
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 0C5 5 0 10 0 15C0 20 5 20 10 15C15 20 20 20 20 15C20 10 15 5 10 0Z" fill="%23338855"/></svg>');
+    background-size: contain;
+    animation: leaves linear infinite;
+    opacity: 0.7;
+}
+
+.theme-transition {
+    transition: all 1s ease;
+}
+
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.pulse {
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.thunder-shake {
+    animation: thunderShake 0.3s linear infinite;
+}
+
+.fog-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.fog-effect::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,50 Q30,40 40,50 Q50,60 60,50 Q70,40 80,50" stroke="rgba(255,255,255,0.2)" stroke-width="10" fill="none"/></svg>');
+    background-size: 200px 100px;
+    animation: fog 20s linear infinite;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.rotate {
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
